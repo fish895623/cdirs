@@ -13,7 +13,6 @@ project(
 include(cmake/project-is-top-level.cmake)
 include(cmake/variables.cmake)
 
-find_package(spdlog REQUIRED)
 # ---- Declare library ----
 
 add_library(
@@ -29,7 +28,9 @@ target_include_directories(
 
 target_compile_features(cdirs_lib PUBLIC cxx_std_17)
 
-target_link_libraries(cdirs_lib PUBLIC spdlog::spdlog)
+find_package(fmt REQUIRED)
+find_package(spdlog REQUIRED)
+target_link_libraries(cdirs_lib PRIVATE fmt::fmt spdlog::spdlog)
 
 # ---- Declare executable ----
 
