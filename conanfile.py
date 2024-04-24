@@ -9,7 +9,6 @@ class Recipe(ConanFile):
         self.folders.generators = "conan"
 
     def requirements(self):
-        self.requires("fmt/10.1.1")
         self.requires("spdlog/1.13.0")
 
     def build_requirements(self):
