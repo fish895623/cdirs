@@ -16,7 +16,7 @@ jobs:
       run: pip3 install codespell
 
     - name: Lint
-      run: cmake -D FORMAT_COMMAND=clang-format -P cmake/lint.cmake
+      run: cmake -D FIX=YES -D FORMAT_COMMAND=clang-format -P cmake/lint.cmake
 
     - name: Spell check
       if: always()
@@ -27,10 +27,6 @@ jobs:
 
     runs-on: ubuntu-22.04
 
-    # To enable coverage, delete the last line from the conditional below and
-    # edit the "<name>" placeholder to your GitHub name.
-    # If you do not wish to use codecov, then simply delete this job from the
-    # workflow.
     if: github.repository_owner == '<name>'
       && false
 

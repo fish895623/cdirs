@@ -1,6 +1,5 @@
-#include <iostream>
 #include <filesystem>
-
+#include <iostream>
 
 auto main() -> int
 {
@@ -8,8 +7,7 @@ auto main() -> int
   const std::filesystem::path path = std::filesystem::current_path();
   std::cout << "Current path: " << path << "\n";
 
-  for (const auto& entry : std::filesystem::directory_iterator(path))
-  {
+  for (const auto& entry : std::filesystem::directory_iterator(path)) {
     std::cout << entry.path() << "\n";
   }
 
