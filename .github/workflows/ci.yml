@@ -27,9 +27,6 @@ jobs:
 
     runs-on: ubuntu-22.04
 
-    if: github.repository_owner == 'fish895623'
-      && false
-
     steps:
     - uses: actions/checkout@v4
 
