@@ -1,7 +1,9 @@
-#include <cstdint>
 #include <vector>
+#include <spdlog/spdlog.h>
 #include <filesystem>
 #include <iostream>
+#include <string>
+#include <cstdint>
 
 struct file {
   std::string name;
@@ -10,8 +12,9 @@ struct file {
   uint64_t size;
 };
 
-auto main() -> int
+auto main(int argc, char *argv[]) -> int
 {
+  spdlog::info("Hello, {}!{}:{}", "World", __FILE__, __LINE__);
   // get file on the same directory
   const std::filesystem::path path = std::filesystem::current_path();
   std::cout << "Current path: " << path << "\n";

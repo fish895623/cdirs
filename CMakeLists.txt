@@ -13,6 +13,7 @@ project(
 include(cmake/project-is-top-level.cmake)
 include(cmake/variables.cmake)
 
+find_package(spdlog REQUIRED)
 # ---- Declare library ----
 
 add_library(
@@ -28,6 +29,8 @@ target_include_directories(
 
 target_compile_features(cdirs_lib PUBLIC cxx_std_17)
 
+target_link_libraries(cdirs_lib PUBLIC spdlog::spdlog)
+
 # ---- Declare executable ----
 
 add_executable(cdirs_exe source/main.cpp)
@@ -37,7 +40,7 @@ set_property(TARGET cdirs_exe PROPERTY OUTPUT_NAME cdirs)
 
 target_compile_features(cdirs_exe PRIVATE cxx_std_17)
 
-target_link_libraries(cdirs_exe PRIVATE cdirs_lib)
+target_link_libraries(cdirs_exe PRIVATE cdirs_lib spdlog::spdlog)
 
 # ---- Install rules ----
 
