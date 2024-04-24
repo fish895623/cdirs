@@ -25,6 +25,8 @@ jobs:
   coverage:
     needs: [lint]
 
+    if: github.repository_owner == 'fish895623'
+
     runs-on: ubuntu-22.04
 
     steps:
