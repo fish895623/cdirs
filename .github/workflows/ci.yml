@@ -1,0 +1,12 @@
+name: Run Test
+
+on: ["push"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: meson setup build
+      - run: meson compile -C build
