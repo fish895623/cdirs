@@ -1,20 +1,19 @@
-#include <vector>
-#include <spdlog/spdlog.h>
+#include <cstdint>
 #include <filesystem>
 #include <iostream>
 #include <string>
-#include <cstdint>
+#include <vector>
 
-struct file {
+struct file
+{
   std::string name;
   std::string path;
   std::string extension;
   uint64_t size;
 };
 
-auto main(int argc, char *argv[]) -> int
+auto main(int argc, char* argv[]) -> int  // NOLINT(misc-unused-parameters)
 {
-  spdlog::info("Hello, {}!{}:{}", "World", __FILE__, __LINE__);
   // get file on the same directory
   const std::filesystem::path path = std::filesystem::current_path();
   std::cout << "Current path: " << path << "\n";
@@ -31,16 +30,15 @@ auto main(int argc, char *argv[]) -> int
 
     const bool is_directory = std::filesystem::is_directory(entry);
 
-    files.push_back({
-      path_string,
-      entry.path().string(),
-      entry.path().extension().string(),
-      is_directory ? 0 : std::filesystem::file_size(entry)
-    });
+    files.push_back({path_string,
+                     entry.path().string(),
+                     entry.path().extension().string(),
+                     is_directory ? 0 : std::filesystem::file_size(entry)});
   }
 
   for (const auto& file : files) {
-    std::cout << "\033[31m" << file.name << "\033[0m" << file.size << file.extension << "\n";
+    std::cout << "\033[31m" << file.name << "\033[0m" << file.size
+              << file.extension << "\n";
   }
 
   return 0;
