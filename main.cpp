@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include <spdlog/spdlog.h>
+
 struct file
 {
   std::string name;
@@ -14,6 +16,7 @@ struct file
 
 auto main(int argc, char* argv[]) -> int  // NOLINT(misc-unused-parameters)
 {
+  spdlog::info("Hello, World!");
   // get file on the same directory
   const std::filesystem::path path = std::filesystem::current_path();
   std::cout << "Current path: " << path << "\n";
