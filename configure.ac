@@ -5,6 +5,7 @@ AC_PREREQ([2.72])
 AC_INIT([cdirs], [0.1.0], [BUG-REPORT-ADDRESS])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([lib.cpp,main.cpp])
+AC_CONFIG_SRCDIR([lib.hpp])
 
 # Checks for programs.
 AC_PROG_CXX
