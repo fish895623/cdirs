@@ -13,3 +13,8 @@ compile_commands.json
 conan_cache_*.tgz
 .cache
 subprojects/
+*.log
+*.m4
+*.status
+.deps
+*.cache
